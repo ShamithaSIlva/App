@@ -1,0 +1,6 @@
+1) Build and package project with maven : mvn package
+2) Run:docker build -t springthreefold:1.0 .
+3) To run a container for mongo run : docker run -d -p 27017:27017 --name threefolddb mongo:latest
+docker run -p 8080:8080 --name springrestmongo --link threefolddb:mongo -d springthreefold:1.0
+
+http://192.168.99.100:8080/
