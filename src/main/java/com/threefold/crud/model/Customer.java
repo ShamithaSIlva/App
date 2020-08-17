@@ -1,15 +1,19 @@
 package com.threefold.crud.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Customer")
 public class Customer
 {
+	@Transient
+    public static final String SEQUENCE_NAME = "customer_sequence";
+	
 	@Id
 	private long id;
 	private String name;
-	private String surName;
+	private String surname;
 	private String initials;
 	private String mobile;
 	private String idNumber;
@@ -35,14 +39,14 @@ public class Customer
 		this.name = name;
 	}
 
-	public String getSurName()
+	public String getSurname()
 	{
-		return surName;
+		return surname;
 	}
 
-	public void setSurName( String surName )
+	public void setSurname( String surname )
 	{
-		this.surName = surName;
+		this.surname = surname;
 	}
 
 	public String getInitials()

@@ -1,0 +1,14 @@
+version: "3"
+services:
+ threefolddb:
+   image: mongo:latest
+   container_name: "threefolddb"
+   ports:
+     - 27017:27017
+ springrestmongo:
+   image: springthreefold:1.0
+   container_name: springrestmongo
+   ports:
+     - 8080:8080
+   links:
+     - threefolddb 
